@@ -1,4 +1,4 @@
-package contata;
+package src.contata;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -54,28 +54,25 @@ public class parser {
 		 	
 	}
 	
-   private static void visitChildNodes(NodeList nList)
-   {
-      for (int i = 0; i < nList.getLength(); i++)
-      {
-         Node node = nList.item(i);
-         if (node.getNodeType() == Node.ELEMENT_NODE)
-         {
+	private static void visitChildNodes(NodeList nList)
+	{
+		for (int i = 0; i < nList.getLength(); i++) {
+			Node node = nList.item(i);
+			if (node.getNodeType() == Node.ELEMENT_NODE) {
             //System.out.println("Node = " + node.getNodeName() + node.getTextContent());
-            if (node.hasAttributes()) {
-               NamedNodeMap nodeMap = node.getAttributes();
-               for (int j = 0; j < nodeMap.getLength(); j++)
-               {
-                   Node tempNode = nodeMap.item(j);
-                   System.out.println(tempNode.getNodeName() + " = " + tempNode.getNodeValue());
+				if (node.hasAttributes()) {
+					NamedNodeMap nodeMap = node.getAttributes();
+					for (int j = 0; j < nodeMap.getLength(); j++) {
+               Node tempNode = nodeMap.item(j);
+               System.out.println(tempNode.getNodeName() + " = " + tempNode.getNodeValue());
                }
                if (node.hasChildNodes()) {
                   visitChildNodes(node.getChildNodes());
-               }
-           }
-         }
-      }
-   }
+               		}
+				}
+			}
+		}
+	}
 
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
 		File xml = new File("file.xml");
