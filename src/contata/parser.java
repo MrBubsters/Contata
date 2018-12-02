@@ -54,8 +54,7 @@ public class parser {
 		 	
 	}
 	
-	private static void visitChildNodes(NodeList nList)
-	{
+	private static void visitChildNodes(NodeList nList) {
 		for (int i = 0; i < nList.getLength(); i++) {
 			Node node = nList.item(i);
 			if (node.getNodeType() == Node.ELEMENT_NODE) {
